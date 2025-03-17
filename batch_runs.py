@@ -181,7 +181,7 @@ def runSomeBatches(dlist,plist,dirname,priorfile,seed=None,nsim=20000,ndigit=3,p
         try :
             logger.info('now generating sumstats files for different P(I|H)')
             logger.info('Writing in directory sumstats')
-            os.mkdir('sumstats',0o755)
+            os.makedirs('sumstats',0o755,exist_ok=True)
             os.chdir('./sumstats')
             logger.info('now in %s' %os.getcwd())
             for j in tqdm(range(len(plist)),disable = not pbar):
