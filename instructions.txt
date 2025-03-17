@@ -1,0 +1,8 @@
+INSTRUCTIONS
+
+pip install numpy scipy pyabc scikit-learn matplotlib seaborn tqdm --user
+python batch_runs.py --prior data/standard_priors.csv --dirname hydrothermal_methane -n 5000 -p 0.5 -d 0.03 --save-raw
+python data_setup_script.py --dirname hydrothermal_methane --Ntrain 3000
+python makefigures.py --dirname hydrothermal_methane
+
+Go to hydrothermal_methane/figures and see the outputs
