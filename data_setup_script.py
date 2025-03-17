@@ -174,8 +174,8 @@ def BoostrapSimulations(K,seeds,outcomes,observations,Ntrain,bmass_cutoff):
 
 def main(dirname,cutoff=0.0,K=10,Ntrain=40000,PIH=0.5,btsrp_seeds=None,tbgen_seed=None):
     ## load simulations
-    rootpath = os.path.join('data',dirname)
-    priorfile_name = os.path.join(rootpath,dirname+'.prior.csv')
+    rootpath = dirname
+    priorfile_name = os.path.join(rootpath,os.path.basename(dirname)+'.prior.csv')
     priors_std = pd.read_csv(priorfile_name,delimiter=';',index_col=0)
     outcome_name = os.path.join(rootpath,'000','core_batch_000raw.csv')
     outcomes_std = pd.read_csv(outcome_name,delimiter=';',index_col=0)
@@ -224,7 +224,7 @@ if __name__ == '__main__':
                         pih=0.5)
     args = parser.parse_args()
     path = os.getcwd()
-    dirname=args.dirname
+    dirname=os.path.abspath(args.dirname)
     # ------------------------------------------------------------------------------
     # Other parameters (simulation properties)
     # ------------------------------------------------------------------------------

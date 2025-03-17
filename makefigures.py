@@ -260,12 +260,12 @@ def plotarray(total_table,logobservations,uni_L,inh_L,hab_L,figpath):
     plt.close()
 
 def main(dirname):
-    rootdir = os.path.join('data',dirname)
+    rootdir = dirname
     
     if not os.path.isdir(os.path.join(rootdir,'figures')):
         os.mkdir(os.path.join(rootdir,'figures'))
     
-    priors = pd.read_csv(os.path.join(rootdir,dirname+'.prior.csv'),delimiter=';',index_col=0)
+    priors = pd.read_csv(os.path.join(rootdir,os.path.basename(dirname)+'.prior.csv'),delimiter=';',index_col=0)
     outcomes = pd.read_csv(os.path.join(rootdir,'000','core_batch_000raw.csv'),delimiter=';',index_col=0)
 
     observations    = pd.read_csv('data/observations/observations.csv',delimiter=';',index_col=0)

@@ -97,7 +97,7 @@ def runSomeBatches(dlist,plist,dirname,priorfile,seed=None,nsim=20000,ndigit=3,p
     seed can be an integer or a filename
     """
     path = dirname
-    os.mkdir(dirname,0o755)
+    os.makedirs(dirname,0o755,exist_ok=True)
     os.chdir(dirname)
     logging.captureWarnings(False)
     logging.basicConfig(filename=dirname+'.log', level=logging.INFO,
@@ -158,13 +158,13 @@ def runSomeBatches(dlist,plist,dirname,priorfile,seed=None,nsim=20000,ndigit=3,p
         while len(digit) < ndigit:
             digit = '0' + digit
         logger.info('making directory '+digit)
-        os.mkdir(digit,0o755)
+        os.makedirs(digit,0o755,exist_ok=True)
         os.chdir(digit)
         logger.info('now in %s' %os.getcwd())
         logger.info('Simulation batch '+digit)
         filename = 'core_batch_'+digit
         logger.info('Writing in '+filename)
-        deathrate = np.float(dlist[i])
+        deathrate = float(dlist[i])
         try :
             logger.info('Run batch with d='+str(dlist[i]))
             runOneBatch(Tf,Run_oconc,Run_fconc,nsim,outfile=filename,dth=deathrate,pbar=False)
@@ -185,7 +185,7 @@ def runSomeBatches(dlist,plist,dirname,priorfile,seed=None,nsim=20000,ndigit=3,p
             os.chdir('./sumstats')
             logger.info('now in %s' %os.getcwd())
             for j in tqdm(range(len(plist)),disable = not pbar):
-                pinh = np.float(plist[j])
+                pinh = float(plist[j])
                 outname = filename+'_P'+str(np.format_float_scientific(pinh))+'stat'
                 logger.info('writing in %s' %outname)
                 total_sim,nuni,nhab,ninh,nunibted,warn = sumstats_gen('../'+filename+'raw.csv',pinh,outname,delimiter=';',saveraw=saveraw)
@@ -257,11 +257,11 @@ if __name__ == "__main__":
                         saveraw = False)
     args = parser.parse_args()
     path = os.getcwd()
-    priorfile = args.prior
+    priorfile = os.path.abspath(args.prior)
     # ------------------------------------------------------------------------------
     # Other parameters (simulation properties)
     # ------------------------------------------------------------------------------
-    dirname = args.dirname
+    dirname = os.path.abspath(args.dirname)
     dlist   = args.dlist
     plist   = args.plist
     pbar    = args.pbar
