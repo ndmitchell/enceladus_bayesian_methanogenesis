@@ -1,0 +1,19 @@
+2020-10-27 11:04:00,961 INFO __main__ __main__was asked to perform simulated datasets with the following parameters : 
+
+2020-10-27 11:04:00,961 INFO __main__ Values of basal death rate : ['0.03'] 
+
+2020-10-27 11:04:00,961 INFO __main__ Values of P(I|H) : ['0.5']
+2020-10-27 11:04:00,964 INFO __main__ No specified seed or state, dumping state in hydrothermal_methaneseed.pck
+2020-10-27 11:04:05,435 INFO __main__ plotting priors
+2020-10-27 11:04:07,701 INFO __main__ making directory 000
+2020-10-27 11:04:07,701 INFO __main__ now in hydrothermal_methane/000
+2020-10-27 11:04:07,701 INFO __main__ Simulation batch 000
+2020-10-27 11:04:07,701 INFO __main__ Writing in core_batch_000
+2020-10-27 11:04:07,701 INFO __main__ Run batch with d=0.03
+2020-10-27 11:47:21,267 INFO __main__ now generating sumstats files for different P(I|H)
+2020-10-27 11:47:21,267 INFO __main__ Writing in directory sumstats
+2020-10-27 11:47:21,268 INFO __main__ now in hydrothermal_methane/000/sumstats
+2020-10-27 11:47:21,268 INFO __main__ writing in core_batch_000_P5.e-01stat
+2020-10-27 11:47:21,828 INFO __main__ core_batch_000_P5.e-01stat with 50000 total data points of which 16020 habitable and 8010 inhabited
+2020-10-27 11:47:21,828 INFO __main__ now in hydrothermal_methane
+2020-10-27 11:47:21,831 INFO __main__ done

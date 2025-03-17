@@ -1,0 +1,17 @@
+digraph Tree {
+node [shape=box, style="filled, rounded", color="black", fontname=helvetica] ;
+edge [fontname=helvetica] ;
+0 [label="R1 <= 343.85\ngini = 0.52\nsamples = 100.0%\nvalue = [0.18, 0.18, 0.65]\nclass = uninhabitable", fillcolor="#b78ef0"] ;
+1 [label="FCH4 <= 32050943.0\ngini = 0.38\nsamples = 81.8%\nvalue = [0.04, 0.2, 0.76]\nclass = uninhabitable", fillcolor="#a674ed"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+3 [label="gini = 0.24\nsamples = 70.6%\nvalue = [0.04, 0.09, 0.87]\nclass = uninhabitable", fillcolor="#9356e9"] ;
+1 -> 3 ;
+4 [label="gini = 0.21\nsamples = 11.2%\nvalue = [0.02, 0.88, 0.1]\nclass = inhabited", fillcolor="#53e892"] ;
+1 -> 4 ;
+2 [label="FH2 <= 72060336.0\ngini = 0.33\nsamples = 18.2%\nvalue = [0.8, 0.07, 0.13]\nclass = habitable", fillcolor="#eb9e66"] ;
+0 -> 2 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+5 [label="gini = 0.44\nsamples = 3.0%\nvalue = [0.13, 0.14, 0.72]\nclass = uninhabitable", fillcolor="#aa79ed"] ;
+2 -> 5 ;
+6 [label="gini = 0.11\nsamples = 15.1%\nvalue = [0.94, 0.05, 0.01]\nclass = habitable", fillcolor="#e78946"] ;
+2 -> 6 ;
+}
